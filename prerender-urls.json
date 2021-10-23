@@ -1,0 +1,21 @@
+[
+	{
+		"url": "/",
+		"title": "Polynumber",
+		"photo": "/assets/polynumber.webp"
+	},
+	{
+		"url": "/polynumbers/",
+		"title": "Polynumbers",
+		"photo": "/assets/polynumber.webp"
+	},
+	{
+		"url": "/circle/",
+		"title": "Circle",
+		"photo": "/assets/circle.webp"
+	},
+	{
+		"url": "/404/",
+		"title": "Page Not Found"
+	}
+]
