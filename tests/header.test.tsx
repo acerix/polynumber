@@ -5,6 +5,6 @@ import { shallow } from 'enzyme'
 describe('Test header contents', () => {
   test('Header brand', () => {
     const context = shallow(<Header />)
-    expect(context.find('.navbar-brand').text()).toBe('Polynumber.com')
+    expect(context.find('.navbar-brand').text()).toBe('polynumber.com')
   })
 })

@@ -10,9 +10,49 @@
 		"photo": "/assets/polynumber.webp"
 	},
 	{
-		"url": "/circle/",
-		"title": "Circle",
-		"photo": "/assets/circle.webp"
+		"url": "/line/",
+		"title": "Line",
+		"photo": "/assets/line.webp"
+	},
+	{
+		"url": "/parabola/",
+		"title": "Parabola",
+		"photo": "/assets/parabola.webp"
+	},
+	{
+		"url": "/hyperbola/",
+		"title": "Hyperbola",
+		"photo": "/assets/hyperbola.webp"
+	},
+	{
+		"url": "/fermat-curve/",
+		"title": "Fermat Curve",
+		"photo": "/assets/fermat-curve'.webp"
+	},
+	{
+		"url": "/folium-of-descartes/",
+		"title": "Folium of Descartes",
+		"photo": "/assets/folium-of-descartes.webp"
+	},
+	{
+		"url": "/lemniscate-of-bernoulli/",
+		"title": "Lemniscate of Bernoulli",
+		"photo": "/assets/lemniscate-of-bernoulli.webp"
+	},
+	{
+		"url": "/lemniscate-of-gerono/",
+		"title": "Lemniscate of Gerono",
+		"photo": "/assets/lemniscate-of-gerono.webp"
+	},
+	{
+		"url": "/φ/",
+		"title": "Phi",
+		"photo": "/assets/φ.webp"
+	},
+	{
+		"url": "/hippopede/",
+		"title": "Hippopede",
+		"photo": "/assets/hippopede.webp"
 	},
 	{
 		"url": "/404/",
