@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Hippopede</title><meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/flatly/bootstrap.min.css" crossorigin="anonymous"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#6f42c1"><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KF63MEXNTN"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-KF63MEXNTN');</script><link rel="shortcut icon" href="/favicon.ico"><style>body,html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-family:-apple-system,BlinkMacSystemFont,Linux Biolinum,Helvetica Neue,helvetica,arial,sans-serif}main{min-height:32vh}@media only screen and (min-width:1024px){main{min-height:64vh}}.canvas_frame__1myZW{background:#000;position:fixed;height:100%;width:100%}.canvas_frame__1myZW,.grid_overlay__3wiLR{bottom:0;left:0;overflow:hidden;right:0;top:0}.grid_overlay__3wiLR{opacity:.75;position:absolute}</style><link href="/bundle.203ed.css" rel="stylesheet" media="only x" onload="this.media='all'"><noscript><link rel="stylesheet" href="/bundle.203ed.css"></noscript></head><body><div><header><nav class="navbar navbar-expand-lg navbar-dark bg-dark"><div class="container"><a class="navbar-brand" href="https://polynumber.com/">polynumber.com</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="nav-menu"><ul class="navbar-nav ms-auto"><li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu"><a class="nav-link text-white" href="/polynumbers/">Encyclopedia</a></li></ul></div></div></nav></header><main><section class="canvas_frame__1myZW"><div class="d-none"><div class="card polynumber_plaque"><a href="/hippopede/" aria-label="Explore"><picture><source srcset="/assets/thumbnails/hippopede.webp" type="image/webp"><source srcset="/assets/thumbnails/hippopede.png" type="image/png"><img src="/assets/thumbnails/hippopede.png" class="card-img-top" alt="Visualization of Hippopede"></picture></a><div class="card-body"><h5 class="card-title"><strong><em>Hippopede</em></strong></h5><p class="card-text"><strong>t(['1,0':'-4','4,0':'1','0,2':'-1','2,2':'2','0,4':'1'])<br>0 = -4x + x<sup>4</sup> + -1y<sup>2</sup> + 2x<sup>2</sup>y<sup>2</sup> + y<sup>4</sup></strong></p><p class="card-text">calc; -4*x + x^4 + -1*y^2 + 2*x^2*y^2 + y^4<br>GLSL: -4.0*x+x*x*x*x+-1.0*y*y+2.0*x*x*y*y+y*y*y*y</p></div></div></div><div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" id="shaders" aria-labelledby="shadersLabel"><div class="offcanvas-header"><h5 class="offcanvas-title" id="shadersLabel">Shaders</h5><button type="button" class="btn-close text-reset" data-bs-dismiss="parameterPanel" aria-label="Close"></button></div><div class="offcanvas-body"><form><div class="mb-3"><label for="vertexShader">Vertex Shader</label><textarea class="form-control" id="vertexShader" rows="6">#version 300 es
+in vec2 a_position;
+in vec4 a_color;
+out vec4 v_color;
+
+void main(void) {
+  gl_Position = vec4(a_position, 0.0, 1.0);
+  v_color = a_color;
+}
+</textarea></div><div class="mb-3"><label for="fragmentShader">Fragment Shader</label><textarea class="form-control" id="fragmentShader" rows="20">#version 300 es
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+
+uniform float u_time;
+uniform vec2 u_translate;
+uniform vec2 u_scale;
+out vec4 fragmentColor;
+
+void main() {
+  float x = ( gl_FragCoord.x + u_translate.x ) * u_scale.x;
+  float y = ( gl_FragCoord.y + u_translate.y ) * u_scale.y;
+  float x2 = x*x;
+  float y2 = y*y;
+
+  float z = -4.0*x+x*x*x*x+-1.0*y*y+2.0*x*x*y*y+y*y*y*y;
+
+  fragmentColor.r = mod(z + u_time / 43.0, 1.0);
+  fragmentColor.g = z &lt; 1.0 ? z : 1.0 / z;
+  fragmentColor.b = mod(z - u_time / 73.0, 1.0);
+}
+</textarea></div></form></div></div><div><div class="grid_overlay__3wiLR"><canvas canvasmethodrefs="[object Object]"></canvas></div></div><canvas></canvas></section></main><footer class="footer text-muted py-3 mt-5"><div class="container"><div class="row"><div class="col-sm-9 col-md-10"><p class="mb-2">© <time id="copyright-year">2021</time> <a class="text-muted text-decoration-none" href="https://polynumber.com/">Polynumber.com</a>. All rights reserved.</p></div><div class="col-sm-5 col-md-2"><p class="float-end mb-2"><a class="text-muted text-decoration-none me-2" href="https://github.com/acerix/polynumber" target="_blank" rel="noreferrer" title="Source Code on GitHub" role="img">Source</a></p></div></div></div></footer></div><script type="__PREACT_CLI_DATA__">%7B%22preRenderData%22:%7B%22url%22:%22/hippopede/%22,%22photo%22:%22/assets/hippopede.webp%22%7D%7D</script><script crossorigin="anonymous" src="/bundle.d2c4d.esm.js" type="module"></script><script nomodule="" src="/polyfills.467da.js"></script><script nomodule="" defer="defer" src="/bundle.c1e8d.js"></script></body></html>

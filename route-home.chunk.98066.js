@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{FDtd:function(e,t,c){"use strict";c.r(t);var n=c("hosL"),o=c("Hrl7");t.default=function(){return Object(n.h)("section",{class:"container"},Object(n.h)(o.a,{title:"Polynumber"}),Object(n.h)("div",{class:"px-4 pt-5 my-5 text-center"},Object(n.h)("h1",{class:"h4 fw-bold"},"Polynumber.com"),Object(n.h)("p",null,"Welcome to polynumberopia.")))}}}]);
+//# sourceMappingURL=route-home.chunk.98066.js.map
