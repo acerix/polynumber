@@ -5,6 +5,10 @@
 		"photo": "/assets/polynumber.webp"
 	},
 	{
+		"url": "/about/",
+		"title": "About Polynumber.com"
+	},
+	{
 		"url": "/polynumbers/",
 		"title": "Polynumbers",
 		"photo": "/assets/polynumber.webp"
@@ -53,6 +57,10 @@
 		"url": "/hippopede/",
 		"title": "Hippopede",
 		"photo": "/assets/hippopede.webp"
+	},
+	{
+		"url": "/random/",
+		"title": "A Random Polynumber"
 	},
 	{
 		"url": "/404/",

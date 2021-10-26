@@ -3,12 +3,14 @@ import { Route, Router } from 'preact-router'
 import Helmet from 'react-helmet'
 
 import Home from '../routes/home'
-import PolynumberIndex from '../routes/polynumbers'
+import About from '../routes/about'
+import Polynumbers from '../routes/polynumbers'
 import PolynumberVisualizer from '../routes/polynumber'
 
 import NotFound from '../routes/not-found'
 import Header from './header'
 import Footer from './footer'
+import { RandomPolynumber } from '../routes/polynumbers/meta'
 
 const App: FunctionalComponent = () => {
   return (
@@ -46,7 +48,9 @@ const App: FunctionalComponent = () => {
       <main>
         <Router>
           <Home path="/" />
-          <PolynumberIndex path="/polynumbers/" />
+          <About path="/about/" />
+          <Polynumbers path="/polynumbers/" />
+          <RandomPolynumber path="/random/" />
           <Route path="/:path/" component={PolynumberVisualizer} />
           <NotFound default />
         </Router>

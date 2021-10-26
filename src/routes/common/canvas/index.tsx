@@ -34,7 +34,7 @@ export interface CanvasProps {
   canvasMethodRefs?: CanvasMethods;
 }
 
-export const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
+const Canvas: FunctionalComponent<CanvasProps> = (props: CanvasProps) => {
   const { getContext, init, ready, draw, onResize, animate, framesPerSecond, ...rest } = props
   const ref = createRef()
   const frameMilliseconds = framesPerSecond ? 1000 / framesPerSecond : undefined

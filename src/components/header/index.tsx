@@ -22,6 +22,11 @@ const Header: FunctionalComponent = () => {
                   Encyclopedia
                 </Link>
               </li>
+              <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
+                <Link class="nav-link text-white" href="/about/" activeClassName="active" onClick={handleNavCollapse}>
+                  About
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

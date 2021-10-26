@@ -1,11 +1,11 @@
 {
-  "name": "Polynumber",
-  "short_name": "Polynumber",
-  "start_url": "/",
+  "name": "Polynumber.com",
+  "short_name": "PolyNum",
+  "start_url": "/random/",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#1a0933",
-  "theme_color": "#6f42c1",
+  "orientation": "landscape",
+  "background_color": "#137395",
+  "theme_color": "#800080",
   "icons": [
     {
       "src": "/assets/icons/android-chrome-192x192.png",

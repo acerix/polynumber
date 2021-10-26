@@ -11,6 +11,10 @@ async function generate() {
 <lastmod>2021-10-01</lastmod>
 </url>
 <url>
+<loc>https://polynumber.com/about/</loc>
+<lastmod>2021-10-01</lastmod>
+</url>
+<url>
 <loc>https://polynumber.com/polynumbers/</loc>
 <lastmod>2021-10-01</lastmod>
 </url>
@@ -51,7 +55,7 @@ async function generate() {
 <lastmod>2021-10-01</lastmod>
 </url>
 </urlset>
-  `
+`
   const formatted = prettier.format(sitemap, {
     ...prettierConfig,
     parser: 'html'

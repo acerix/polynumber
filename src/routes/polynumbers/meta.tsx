@@ -3,6 +3,8 @@
 import { Polyrat } from "cnum/dist/tsc/Polyrat"
 import { createRef, FunctionalComponent, h } from "preact"
 import { PreactHTMLConverter } from "preact-html-converter"
+import { Link } from "preact-router"
+import { Helmet } from "react-helmet"
 import library from "./library"
 
 interface PolynumberPlaqueProps {
@@ -29,9 +31,30 @@ export const PolynumberPlaque: FunctionalComponent<PolynumberPlaqueProps> = (pro
       <h5 class="card-title">
         <strong><em>{polynumber.title}</em></strong>
       </h5>
-      <p class="card-text"><strong>{polyrat.toString()} <br />0 = {PreactHTMLConverter().convert(polyrat.toHTMLFormula())}</strong></p>
       { polynumber.description ? <p class="card-text">{polynumber.description}</p> : '' }
-      <p class="card-text">calc; {polyrat.toCalcFormula()} <br />GLSL: {polyrat.toGLSLFormula()}</p>
+      <p class="card-text"><strong>0 = {PreactHTMLConverter().convert(polyrat.toHTMLFormula())}</strong></p>
+      <p class="card-text"><strong>{PreactHTMLConverter().convert(polyrat.toStandardAlphaFormHTML())}</strong></p>
+      <p class="card-text">JSON: {JSON.stringify(JSON.parse(polyrat.toJSON()), null, 2)}</p>
+      <p class="card-text">calc: {polyrat.toCalcFormula()}</p>
+      <p class="card-text">GLSL: {polyrat.toGLSLFormula()}</p>
     </div>
   </div>
+}
+
+export const RandomPolynumber: FunctionalComponent = () => {
+  const paths = Object.keys(library)
+  const path = paths[Math.random() * paths.length << 0]
+  const polynumber = library[path]
+  const polyrat = new Polyrat(polynumber.coefficents)
+  window.location.href = `/${polynumber.path}/`
+  return (
+    <section class="container py-5">
+      <Helmet>
+        <title>Random Polynumber</title>
+      </Helmet>
+      <p>Redirecting to the "{polynumber.title}" polynumber...</p>
+      <p><strong>{PreactHTMLConverter().convert(polyrat.toHTMLFormula())}</strong></p>
+      <Link class="btn btn-outline-primary btn-lg px-4 me-sm-3" href="/{polynumber.path}/">{polynumber.title}</Link>
+    </section>
+  )
 }
