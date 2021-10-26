@@ -44,12 +44,6 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
   let contextHeight = 0
 
   const init = (ctx: CanvasRenderingContext2D): void => {
-    ctx.strokeStyle = '#999' // lines
-    ctx.fillStyle = '#ccc' // text
-    ctx.textAlign = 'right'
-    ctx.lineWidth = 1
-    ctx.font = `${fontSize}px monospace`
-    contextHeight = ctx.canvas.height
     canvasCenter[0] = ctx.canvas.width/2
     canvasCenter[1] = ctx.canvas.height/2
     translate[0] = -canvasCenter[0]
@@ -63,6 +57,12 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
   }
 
   const onResize = (ctx: CanvasRenderingContext2D): void => {
+    ctx.strokeStyle = '#999' // lines
+    ctx.fillStyle = '#ccc' // text
+    ctx.textAlign = 'right'
+    ctx.font = `${fontSize}px monospace`
+    ctx.lineWidth = 1
+    contextHeight = ctx.canvas.height
     draw(ctx)
   }
 
