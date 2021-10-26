@@ -1,5 +1,4 @@
 import { FunctionalComponent, h } from 'preact'
-import { Link } from 'preact-router'
 import Helmet from 'react-helmet'
 
 const Home: FunctionalComponent = () => {
