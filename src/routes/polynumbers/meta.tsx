@@ -46,7 +46,9 @@ export const RandomPolynumber: FunctionalComponent = () => {
   const path = paths[Math.random() * paths.length << 0]
   const polynumber = library[path]
   const polyrat = new Polyrat(polynumber.coefficents)
-  window.location.href = `/${polynumber.path}/`
+  if (typeof window !== 'undefined') {
+    window.location.href = `/${polynumber.path}/`
+  }
   return (
     <section class="container py-5">
       <Helmet>
@@ -54,7 +56,7 @@ export const RandomPolynumber: FunctionalComponent = () => {
       </Helmet>
       <p>Redirecting to the "{polynumber.title}" polynumber...</p>
       <p><strong>{PreactHTMLConverter().convert(polyrat.toHTMLFormula())}</strong></p>
-      <Link class="btn btn-outline-primary btn-lg px-4 me-sm-3" href="/{polynumber.path}/">{polynumber.title}</Link>
+      <Link class="btn btn-outline-primary btn-lg px-4 me-sm-3" href={`/${polynumber.path}/`}>{polynumber.title}</Link>
     </section>
   )
 }

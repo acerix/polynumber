@@ -3002,9 +3002,9 @@ clone@^1.0.2:
   integrity sha1-2jCcwmPfFZlMaIypAheco8fNfH4=
 
 cnum@*:
-  version "0.0.26"
-  resolved "https://registry.yarnpkg.com/cnum/-/cnum-0.0.26.tgz#e1f551791b47a19b46adc1d87a3e340a7154c184"
-  integrity sha512-H92eJcFUJeSAU8Q/qqDL+5s/EvAB1b+o7ee6B7c6JgsU4tQsvgggQ33xx/2k+gQfLwDM4aFFiaysoBzr+hlnGg==
+  version "0.0.27"
+  resolved "https://registry.yarnpkg.com/cnum/-/cnum-0.0.27.tgz#a1855c83a900fa9d65affc00e5c8b670282f3a5f"
+  integrity sha512-xhq7Ja2fNSWxfbuJC4QjlPfu16t6xXYuk9sRP5om99dxjcMUosmbNBJEuPTeqU/73EC/9aqj0WiB8cOE4HRNWQ==
   dependencies:
     tslib "*"
 

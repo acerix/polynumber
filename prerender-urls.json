@@ -24,9 +24,19 @@
 		"photo": "/assets/parabola.webp"
 	},
 	{
+		"url": "/inverse-parabola/",
+		"title": "Inverse Parabola",
+		"photo": "/assets/inverse-parabola.webp"
+	},
+	{
 		"url": "/hyperbola/",
 		"title": "Hyperbola",
 		"photo": "/assets/hyperbola.webp"
+	},
+	{
+		"url": "/circle/",
+		"title": "Circle",
+		"photo": "/assets/circle.webp"
 	},
 	{
 		"url": "/fermat-curve/",
@@ -47,6 +57,16 @@
 		"url": "/lemniscate-of-gerono/",
 		"title": "Lemniscate of Gerono",
 		"photo": "/assets/lemniscate-of-gerono.webp"
+	},
+	{
+		"url": "/quartic/",
+		"title": "Quartic",
+		"photo": "/assets/quartic.webp"
+	},
+	{
+		"url": "/jumping-jack/",
+		"title": "Jumping Jack",
+		"photo": "/assets/jumping-jack.webp"
 	},
 	{
 		"url": "/φ/",

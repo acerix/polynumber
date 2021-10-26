@@ -45,7 +45,9 @@ export const WebGL2: FunctionalComponent<WebGL2Props> = (props: WebGL2Props) => 
     const ctx = getContext ? getContext(canvas) : canvas.getContext('webgl2', defaultContextOptions) as WebGL2RenderingContext
     if (!ctx) {
       alert('Error getting context. WebGL2 is required.')
-      window.location.href='https://get.webgl.org/webgl2/'
+      if (typeof window !== 'undefined') {
+        window.location.href='https://get.webgl.org/webgl2/'
+      }
       return
     }
 
