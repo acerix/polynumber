@@ -62,6 +62,10 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
     draw(ctx)
   }
 
+  const onResize = (ctx: CanvasRenderingContext2D): void => {
+    draw(ctx)
+  }
+
   const render = (): void => {
     if (canvasMethodRefs && 'render' in canvasMethodRefs) {
       canvasMethodRefs.render()
@@ -404,7 +408,7 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
 
   return (
     <div class={style.grid_overlay} {...rest}>
-      <Canvas canvasMethodRefs={canvasMethodRefs} init={init} onResize={init} draw={draw} animate={true} />
+      <Canvas canvasMethodRefs={canvasMethodRefs} init={init} onResize={onResize} draw={draw} animate={true} />
     </div>
   )
 }
