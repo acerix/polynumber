@@ -17,13 +17,22 @@ type PolynomialLibrary = {
 }
 
 const library: PolynomialLibrary = {
+  constant: {
+    path: 'constant',
+    title: 'Constant Value',
+    description: 'When everytime you ask "why?", you get the same answer.',
+    coefficents: {
+      '0,1': new Rat(1),
+      '0,0': new Rat(-1)
+    },
+  },
   line: {
     path: 'line',
     title: 'Line',
     description: 'The most linear polynomials are known as lines.',
     coefficents: {
       '1,0': new Rat(1),
-      '0,0': new Rat(-1)
+      '0,1': new Rat(-1)
     },
   },
   parabola: {

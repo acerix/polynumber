@@ -97,7 +97,6 @@ const PolynumberVisualizer: FunctionalComponent<Props> = (props: Props) => {
 
   const onResize = (ctx: WebGL2RenderingContext): void => {
     ctx.viewport(0, 0, ctx.canvas.width, ctx.canvas.height)
-    // draw(ctx, -1)
   }
 
   const setTranslate = (x: number, y: number): void => {
