@@ -5,6 +5,7 @@ import { createRef, FunctionalComponent, h } from "preact"
 import { PreactHTMLConverter } from "preact-html-converter"
 import { Link } from "preact-router"
 import { Helmet } from "react-helmet"
+import { Polynumber } from "./library"
 import library from "./library"
 
 interface PolynumberPlaqueProps {
@@ -41,10 +42,14 @@ export const PolynumberPlaque: FunctionalComponent<PolynumberPlaqueProps> = (pro
   </div>
 }
 
-export const RandomPolynumber: FunctionalComponent = () => {
+export const getRandomPolynumber = (): Polynumber => {
   const paths = Object.keys(library)
   const path = paths[Math.random() * paths.length << 0]
-  const polynumber = library[path]
+  return library[path]
+}
+
+export const RandomPolynumber: FunctionalComponent = () => {
+  const polynumber = getRandomPolynumber()
   const polyrat = new Polyrat(polynumber.coefficents)
   if (typeof window !== 'undefined') {
     window.location.href = `/${polynumber.path}/`

@@ -23,7 +23,7 @@ const library: PolynomialLibrary = {
     description: 'The most linear polynomials are known as lines.',
     coefficents: {
       '1,0': new Rat(1),
-      '0,1': new Rat(-1)
+      '0,0': new Rat(-1)
     },
   },
   parabola: {

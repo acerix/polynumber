@@ -44,7 +44,7 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
   let contextHeight = 0
 
   const init = (ctx: CanvasRenderingContext2D): void => {
-    const initialScale = rest.initialScale ?? 8/ctx.canvas.width
+    const initialScale = rest.initialScale ?? 16/ctx.canvas.width
     scale[0] = scale[1] = initialScale
     if (setScale) {
       setScale(scale[0], scale[1])

@@ -1,6 +1,17 @@
 import { FunctionalComponent, h } from 'preact'
 import { Link } from 'preact-router'
 import Helmet from 'react-helmet'
+import { getRandomPolynumber } from '../polynumbers/meta'
+
+const gotoRandomPolynumber = (event: MouseEvent): boolean => {
+  if (typeof window !== 'undefined') {
+    event.preventDefault()
+    const polynumber = getRandomPolynumber()
+    window.location.href = `/${polynumber.path}/`
+    return false
+  }
+  return true
+}
 
 const Home: FunctionalComponent = () => {
   return (
@@ -14,9 +25,9 @@ const Home: FunctionalComponent = () => {
             <Link class="btn btn-outline-primary btn-lg px-4 me-sm-3" href="/polynumbers/">
               Encyclopedia
             </Link>
-            <Link class="btn btn-outline-success btn-lg px-4 me-sm-3" href="/random/">
+            <a class="btn btn-outline-success btn-lg px-4 me-sm-3" href="#/random/" onClick={gotoRandomPolynumber}>
               Random
-            </Link>
+            </a>
           </div>
         </div>
       </div>
