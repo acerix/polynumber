@@ -13,6 +13,7 @@ precision highp float;
 #else
 precision mediump float;
 #endif
+#define TAU 6.2831853071795865
 
 uniform float u_time;
 uniform vec2 u_translate;
@@ -22,13 +23,18 @@ out vec4 fragmentColor;
 void main() {
   float x = ( gl_FragCoord.x + u_translate.x ) * u_scale.x;
   float y = ( gl_FragCoord.y + u_translate.y ) * u_scale.y;
-  float x2 = x*x;
-  float y2 = y*y;
 
+  // the curve is where this evaluates to 0, otherwise this is the "distance" to it
   float z = -1.0+48.0*x*y+-64.0*x*x*y+-64.0*x*y*y;
 
-  fragmentColor.r = mod(z + u_time / 43.0, 1.0);
-  fragmentColor.g = z &lt; 1.0 ? z : 1.0 / z;
-  fragmentColor.b = mod(z - u_time / 73.0, 1.0);
+  // draw the curve as full green, tapering out to zero at a distance of 1
+  float d = 1.0 - abs(z);
+  fragmentColor.g = d &lt; 0.0 ? 0.0 : pow(d, 16.0);
+
+  // draw the fractional part of z as blue, the integer values can be seen as black-blue barriers
+  fragmentColor.b = mod(z + u_time / 67.0, 1.0);
+
+  // draw a sin wave through zed in red
+  fragmentColor.r = sin(z * TAU - u_time / 11.0);
 }
-</textarea></div></form></div></div><div><div class="grid_overlay__3wiLR"><canvas canvasmethodrefs="[object Object]"></canvas></div></div><canvas></canvas></section></main><footer class="footer text-muted py-3 mt-5"><div class="container"><div class="row"><div class="col-sm-9 col-md-10"><p class="mb-2">© <time id="copyright-year">2021</time> <a class="text-muted text-decoration-none" href="https://polynumber.com/">Polynumber.com</a>. All rights reserved.</p></div><div class="col-sm-5 col-md-2"><p class="float-end mb-2"><a class="text-muted text-decoration-none me-2" href="https://github.com/acerix/polynumber" target="_blank" rel="noreferrer" title="Source Code on GitHub" role="img">Source</a></p></div></div></div></footer></div><script type="__PREACT_CLI_DATA__">%7B%22preRenderData%22:%7B%22url%22:%22/jumping-jack/%22,%22photo%22:%22/assets/jumping-jack.webp%22%7D%7D</script><script crossorigin="anonymous" src="/bundle.eec71.esm.js" type="module"></script><script nomodule="" src="/polyfills.9ca64.js"></script><script nomodule="" defer="defer" src="/bundle.52303.js"></script></body></html>
+</textarea></div></form></div></div><div><div class="grid_overlay__3wiLR"><canvas canvasmethodrefs="[object Object]"></canvas></div></div><canvas></canvas></section></main><footer class="footer text-muted py-3 mt-5"><div class="container"><div class="row"><div class="col-sm-9 col-md-10"><p class="mb-2">© <time id="copyright-year">2021</time> <a class="text-muted text-decoration-none" href="https://polynumber.com/">Polynumber.com</a>. All rights reserved.</p></div><div class="col-sm-5 col-md-2"><p class="float-end mb-2"><a class="text-muted text-decoration-none me-2" href="https://github.com/acerix/polynumber" target="_blank" rel="noreferrer" title="Source Code on GitHub" role="img">Source</a></p></div></div></div></footer></div><script type="__PREACT_CLI_DATA__">%7B%22preRenderData%22:%7B%22url%22:%22/jumping-jack/%22,%22photo%22:%22/assets/jumping-jack.webp%22%7D%7D</script><script crossorigin="anonymous" src="/bundle.6b464.esm.js" type="module"></script><script nomodule="" src="/polyfills.9ca64.js"></script><script nomodule="" defer="defer" src="/bundle.052fa.js"></script></body></html>

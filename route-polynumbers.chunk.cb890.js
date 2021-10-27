@@ -1,2 +1,2 @@
 (window.webpackJsonp=window.webpackJsonp||[]).push([[6],{TNeN:function(e,c,t){"use strict";t.r(c);var n=t("hosL"),l=t("Hrl7"),o=t("oyW1"),a=t("wXA0"),r=function(){var e=Object(n.createRef)();return Object(n.h)("div",{class:"row my-4",ref:e},Object(n.h)("h2",null,"Encyclopedia of Rational Polynumbers"),Object.values(o.a).map((function(e,c){return Object(n.h)("div",{key:c,class:"col-sm-6 col-md-4 mb-4"},Object(n.h)(a.a,{path:e.path}))})))};c.default=function(){return Object(n.h)("section",{class:"container py-5"},Object(n.h)(l.b,null,Object(n.h)("title",null,"Encyclopedia of Rational Polynumbers")),Object(n.h)(r,null))}}}]);
-//# sourceMappingURL=route-polynumbers.chunk.49944.js.map
+//# sourceMappingURL=route-polynumbers.chunk.cb890.js.map
