@@ -19,6 +19,10 @@ async function generate() {
 <lastmod>2021-10-01</lastmod>
 </url>
 <url>
+<loc>https://polynumber.com/constant/</loc>
+<lastmod>2021-10-01</lastmod>
+</url>
+<url>
 <loc>https://polynumber.com/line/</loc>
 <lastmod>2021-10-01</lastmod>
 </url>
