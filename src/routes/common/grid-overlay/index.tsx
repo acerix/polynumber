@@ -44,15 +44,11 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
   let contextHeight = 0
 
   const init = (ctx: CanvasRenderingContext2D): void => {
-    canvasCenter[0] = ctx.canvas.width/2
-    canvasCenter[1] = ctx.canvas.height/2
-    translate[0] = -canvasCenter[0]
-    translate[1] = -canvasCenter[1]
-    const initialScale = rest.initialScale ?? 64/ctx.canvas.width
+    const initialScale = rest.initialScale ?? 8/ctx.canvas.width
     scale[0] = scale[1] = initialScale
     if (setScale) {
       setScale(scale[0], scale[1])
-    } 
+    }
     draw(ctx)
   }
 
@@ -63,6 +59,24 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
     ctx.font = `${fontSize}px monospace`
     ctx.lineWidth = 1
     contextHeight = ctx.canvas.height
+    const halfWidth = ctx.canvas.width/2
+    const halfHeight = ctx.canvas.height/2
+    if (canvasCenter[0] === 0) {
+      // initially translate (0,0) to center of canvas
+      canvasCenter[0] = halfWidth
+      canvasCenter[1] = halfHeight
+      translate[0] = -canvasCenter[0]
+      translate[1] = -canvasCenter[1]
+    }
+    else {
+      // adjust translation by difference in canvas size
+      const dx = halfWidth - canvasCenter[0]
+      const dy = halfHeight - canvasCenter[1]
+      translate[0] -= dx
+      translate[1] -= dy
+      canvasCenter[0] = halfWidth
+      canvasCenter[1] = halfHeight
+    }
     draw(ctx)
   }
 
