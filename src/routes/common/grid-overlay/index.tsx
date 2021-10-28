@@ -148,7 +148,13 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
         for (let j=0; j<=xLineCount; j++) {
           const label = axisLabelFormat(j + xIndexOffset, powerX)
           const x = firstXPosition + j * spaceX
-          ctx.fillText(label, x + xLabelOffset[0], y + xLabelOffset[1])
+          // rotate the labels to avoid overlap with long labels and small grid
+          ctx.save()
+          ctx.translate(x + xLabelOffset[0], y + xLabelOffset[1])
+          ctx.rotate(-Math.PI/6)
+          ctx.textAlign = 'right'
+          ctx.fillText(label, 0, 0)
+          ctx.restore()
         }
       }
     }
