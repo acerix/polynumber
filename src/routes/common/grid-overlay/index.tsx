@@ -39,7 +39,8 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
   const velocity = [0, 0]
   const fontSize = 12
   const axisLabelMargin = 4
-  const xLabelOffset = [-axisLabelMargin, fontSize+axisLabelMargin]
+  // const xLabelOffset = [-axisLabelMargin, fontSize+axisLabelMargin] // incorrect with rotation
+  const xLabelOffset = [-2, 10]
   const yLabelOffset = [-axisLabelMargin, -axisLabelMargin]
   let contextHeight = 0
 
@@ -157,6 +158,8 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
           ctx.rotate(-Math.PI/6)
           ctx.fillText(label, 0, 0)
           ctx.restore()
+          // no rotation:
+          // ctx.fillText(label, x + xLabelOffset[0], y + xLabelOffset[1])
         }
       }
     }
