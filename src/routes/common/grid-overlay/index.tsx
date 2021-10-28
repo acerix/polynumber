@@ -54,9 +54,11 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
 
   const onResize = (ctx: CanvasRenderingContext2D): void => {
     ctx.strokeStyle = '#999' // lines
-    ctx.fillStyle = '#ccc' // text
+    ctx.fillStyle = '#fff' // text
     ctx.textAlign = 'right'
     ctx.font = `${fontSize}px monospace`
+    ctx.shadowColor = 'rgba(0,0,0,1)'
+    ctx.shadowBlur = 4
     ctx.lineWidth = 1
     contextHeight = ctx.canvas.height
     const halfWidth = ctx.canvas.width/2
@@ -148,11 +150,11 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
         for (let j=0; j<=xLineCount; j++) {
           const label = axisLabelFormat(j + xIndexOffset, powerX)
           const x = firstXPosition + j * spaceX
-          // rotate the labels to avoid overlap with long labels and small grid
+          // rotate to avoid overlap with long labels and small grid
+          // @todo better to rotate once then draw all labels?
           ctx.save()
           ctx.translate(x + xLabelOffset[0], y + xLabelOffset[1])
           ctx.rotate(-Math.PI/6)
-          ctx.textAlign = 'right'
           ctx.fillText(label, 0, 0)
           ctx.restore()
         }
