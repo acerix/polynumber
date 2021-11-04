@@ -54,13 +54,20 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
   }
 
   const onResize = (ctx: CanvasRenderingContext2D): void => {
-    ctx.strokeStyle = '#999' // lines
-    ctx.fillStyle = '#fff' // text
+
+    // line styles
+    ctx.strokeStyle = '#999'
+    ctx.lineWidth = 1
+    
+    // text styles
+    ctx.fillStyle = '#fff'
     ctx.textAlign = 'right'
     ctx.font = `${fontSize}px monospace`
-    ctx.shadowColor = 'rgba(0,0,0,1)'
-    ctx.shadowBlur = 4
-    ctx.lineWidth = 1
+    // @todo white on white bg in unreadable
+    // shadowBlur works ok but is too slow in Firefox
+    // ctx.shadowColor = 'rgba(0,0,0,1)'
+    // ctx.shadowBlur = 1
+
     contextHeight = ctx.canvas.height
     const halfWidth = ctx.canvas.width/2
     const halfHeight = ctx.canvas.height/2
