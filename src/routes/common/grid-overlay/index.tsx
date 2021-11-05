@@ -25,8 +25,8 @@ export const axisLabelFormat = (coefficient: number, exponent: number): string =
       return (coefficient*logBase**exponent).toFixed(-exponent)
     }
   }
-  // pseudoscientific notation, eg. 5⏨42 for 5*10^42
-  return `${coefficient}⏨${exponent}`
+  // pseudoscientific notation, eg. 5×⏨42 for 5*10^42
+  return `${coefficient}×⏨${exponent}`
 }
 
 type TranslateFunction = (x: number, y: number) => void
