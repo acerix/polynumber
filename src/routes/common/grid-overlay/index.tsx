@@ -3,12 +3,30 @@ import { useEffect } from 'preact/hooks'
 import Canvas, { CanvasMethods } from '../../common/canvas'
 import style from './style.css'
 
-export const axisLabelFormat = (d: number, n: number): string => {
-  if (d === 0) return '0'
-  if (n > -1 && n < 4) {
-    return `${d}${'0'.repeat(n)}`
+const logBase = 10
+const zoomFactor = logBase**(1/13)
+const microZoomFactor = zoomFactor**(1/32)
+const minimumGridSpacing = 24
+const μ = .9
+const translateFactor = 16
+let free = true
+
+export const axisLabelFormat = (coefficient: number, exponent: number): string => {
+  if (coefficient === 0) return '0'
+  // simple notation for small exponents
+  if (exponent < 5) {
+    // @todo i18n eg. toLocaleString
+    if (exponent >= 0) {
+      // 1...10,000
+      return `${coefficient}${'0'.repeat(exponent)}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    }
+    if (exponent > -5) {
+      // 0...0.0001
+      return (coefficient*logBase**exponent).toFixed(-exponent)
+    }
   }
-  return `${d}⏨${n}`
+  // pseudoscientific notation, eg. 5⏨42 for 5*10^42
+  return `${coefficient}⏨${exponent}`
 }
 
 type TranslateFunction = (x: number, y: number) => void
@@ -21,14 +39,6 @@ export interface GridOverlayProps {
   setScale?: ScaleFunction;
   initialScale?: number;
 }
-
-const logBase = 10
-const zoomFactor = logBase**(1/13)
-const microZoomFactor = zoomFactor**(1/32)
-const minimumGridSpacing = 24
-const μ = .9
-const translateFactor = 16
-let free = true
 
 export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOverlayProps) => {
   const { setTranslate, setScale, ...rest } = props
@@ -66,7 +76,7 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
     // @todo white on white bg in unreadable
     // shadowBlur works ok but is too slow in Firefox
     // ctx.shadowColor = 'rgba(0,0,0,1)'
-    // ctx.shadowBlur = 1
+    // ctx.shadowBlur = 4
 
     contextHeight = ctx.canvas.height
     const halfWidth = ctx.canvas.width/2
@@ -158,15 +168,18 @@ export const GridOverlay: FunctionalComponent<GridOverlayProps> = (props: GridOv
         for (let j=0; j<=xLineCount; j++) {
           const label = axisLabelFormat(j + xIndexOffset, powerX)
           const x = firstXPosition + j * spaceX
-          // rotate to avoid overlap with long labels and small grid
+
+          // rotate: to avoid overlap with long labels and small grid
           // @todo better to rotate once then draw all labels?
           ctx.save()
           ctx.translate(x + xLabelOffset[0], y + xLabelOffset[1])
           ctx.rotate(-Math.PI/6)
           ctx.fillText(label, 0, 0)
           ctx.restore()
-          // no rotation:
+
+          // without rotate:
           // ctx.fillText(label, x + xLabelOffset[0], y + xLabelOffset[1])
+
         }
       }
     }
