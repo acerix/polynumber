@@ -53,12 +53,12 @@
   "dependencies": {
     "cnum": "*",
     "core-js": "*",
+    "jrid": "*",
     "postcss": "<8",
     "preact": "*",
     "preact-html-converter": "*",
     "preact-render-to-string": "*",
     "preact-router": "*",
-    "react-helmet": "*",
     "regenerator-runtime": "*",
     "use-hash-state": "*"
   },
@@ -80,8 +80,10 @@
     "globby": "*",
     "jest": "*",
     "jest-preset-preact": "*",
+    "parse5": "*",
     "preact-cli": "*",
     "prettier": "*",
+    "react-helmet": "*",
     "sirv-cli": "*",
     "typescript": "*"
   },
@@ -96,6 +98,12 @@
     ],
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/sw.js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^react$": "preact/compat",
+      "^react-dom/test-utils$": "preact/test-utils",
+      "^react-dom$": "preact/compat",
+      "^react/jsx-runtime$": "preact/jsx-runtime"
+    }
   }
 }

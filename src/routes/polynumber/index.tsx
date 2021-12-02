@@ -6,10 +6,11 @@ import NotFound from '../not-found'
 import style from '../common/canvas/style.css'
 import fragmentShaderSource from './fragment.js'
 import vertexShaderSource from './vertex.js'
-import GridOverlay from '../common/grid-overlay'
 import library from '../polynumbers/library'
 import { PolynumberPlaque } from '../polynumbers/meta'
 import Polyrat from 'cnum/dist/tsc/Polyrat'
+import { GridOverlay } from '../common/grid-overlay'
+// import { GridOverlay } from 'jrid'
 
 const initShader = (gl: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
   const shader = gl.createShader(type)

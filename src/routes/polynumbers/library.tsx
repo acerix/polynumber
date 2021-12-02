@@ -72,6 +72,26 @@ const library: PolynomialLibrary = {
       '0,2': new Rat(1)
     }
   },
+  square: {
+    path: 'square',
+    title: 'Square',
+    description: 'A square.',
+    coefficents: {
+      '0,0': new Rat(-1),
+      '2,0': new Rat(1),
+      '0,2': new Rat(1)
+    }
+  },
+  triangle: {
+    path: 'triangle',
+    title: 'Triangle',
+    description: 'A triangle.',
+    coefficents: {
+      '0,0': new Rat(-1),
+      '2,0': new Rat(1),
+      '0,2': new Rat(1)
+    }
+  },
   'fermat-curve': {
     path: 'fermat-curve',
     title: 'Fermat Curve',
