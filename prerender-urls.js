@@ -65,7 +65,6 @@ module.exports = async function () {
     quartic: {
       path: 'quartic',
       title: 'quartic⁴',
-      description: 'A quartic polynomial.',
     },
     'jumping-jack': {
       path: 'jumping-jack',
@@ -88,8 +87,6 @@ module.exports = async function () {
       photo: `/assets/thumbnails/${polynumber.path}.webp`
     })
   }
-
-  console.log(pages)
 
   return pages
 }
