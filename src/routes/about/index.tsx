@@ -11,7 +11,7 @@ const Home: FunctionalComponent = () => {
       <p>Polynumber is brought to you by our corporate sponsors, and by generous contributions from viewers like you.</p>
       <ul>
         <li>
-          <a href="https://psilly.com/">Psilly Corporation</a>
+          Got <a href="https://psilly.com/">Psilly</a>?
         </li>
       </ul>
     </section>

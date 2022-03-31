@@ -9,9 +9,12 @@ const Header: FunctionalComponent = () => {
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="https://polynumber.com/">
-          polynumber.com
+          <a class="navbar-brand" href="/">
+            Polynumber
           </a>
+          <span class="navbar-text text-white">
+            Poly wants a number?
+          </span>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu" aria-controls="nav-menu" aria-expanded={!isNavCollapsed} aria-label="Toggle navigation" onClick={handleNavCollapse}>
             <span class="navbar-toggler-icon" />
           </button>
@@ -23,8 +26,8 @@ const Header: FunctionalComponent = () => {
                 </Link>
               </li>
               <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#nav-menu">
-                <Link class="nav-link text-white" href="/about/" activeClassName="active" onClick={handleNavCollapse}>
-                  About
+                <Link class="nav-link text-white" href="/edit/" activeClassName="active" onClick={handleNavCollapse}>
+                  Editor
                 </Link>
               </li>
             </ul>

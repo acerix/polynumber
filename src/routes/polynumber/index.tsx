@@ -9,8 +9,9 @@ import vertexShaderSource from './vertex.js'
 import library from '../polynumbers/library'
 import { PolynumberPlaque } from '../polynumbers/meta'
 import Polyrat from 'cnum/dist/tsc/Polyrat'
-import { GridOverlay } from '../common/grid-overlay'
-// import { GridOverlay } from 'jrid'
+import { GridOverlay as JridOverlay } from '../common/grid-overlay'
+// import { JridOverlay } from 'jrid/dist/tsc/src/jrid'
+// import { JridOverlay } from '../../../../jrid/src/jrid'
 
 const initShader = (gl: WebGL2RenderingContext, type: number, source: string): WebGLShader => {
   const shader = gl.createShader(type)
@@ -73,10 +74,10 @@ const PolynumberVisualizer: FunctionalComponent<Props> = (props: Props) => {
   const bindBuffers = (gl: WebGL2RenderingContext, program: WebGLProgram): void => {
     const positionAttrib = gl.getAttribLocation(program, 'a_position')
     const vertices = new Float32Array([
-      +1, +1, +0,
-      -1, +1, +0,
-      +1, -1, +0,
-      -1, -1, +0
+      1,  1,  0,
+      -1,  1,  0,
+      1, -1,  0,
+      -1, -1,  0
     ])
     const vertexBuffer = gl.createBuffer()
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
@@ -142,8 +143,18 @@ const PolynumberVisualizer: FunctionalComponent<Props> = (props: Props) => {
           </form>
         </div>
       </div>
+      <div style="position: absolute; top: 16px; right: 16px; z-index: 666;">
+        <ul style="list-style: none; padding: 0;">
+          <li>
+            <a href={`/edit/#{polynumber.coefficents}`}>Editor</a>
+          </li>
+          <li>
+            {polynumber.coefficents.length}
+          </li>
+        </ul>
+      </div>
       <div>
-        <GridOverlay setTranslate={setTranslate} setScale={setScale} />
+        <JridOverlay setTranslate={setTranslate} setScale={setScale} />
       </div>
       <WebGL2 init={init} onResize={onResize} draw={draw} />
     </section>

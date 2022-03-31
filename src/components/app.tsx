@@ -11,6 +11,7 @@ import NotFound from '../routes/not-found'
 import Header from './header'
 import Footer from './footer'
 import { RandomPolynumber } from '../routes/polynumbers/meta'
+import PolynumberEditor from '../routes/editor'
 
 const App: FunctionalComponent = () => {
   return (
@@ -50,6 +51,7 @@ const App: FunctionalComponent = () => {
           <Home path="/" />
           <About path="/about/" />
           <Polynumbers path="/polynumbers/" />
+          <PolynumberEditor path="/edit/" />
           <RandomPolynumber path="/random/" />
           <Route path="/:path/" component={PolynumberVisualizer} />
           <NotFound default />

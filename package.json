@@ -4,15 +4,16 @@
   "homepage": "https://polynumber.com/",
   "version": "0.0.1",
   "license": "GPL-3.0",
+  "type": "commonjs",
   "scripts": {
     "dev": "preact watch",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx,mjs}' 'tests/**/*.{js,jsx,ts,tsx,mjs}'",
     "test": "jest ./tests",
     "clean": "rm -rf build coverage",
-    "build": "preact build",
+    "build": "preact build --no-prerender",
     "postbuild": "node ./src/generate-sitemap.mjs",
     "serve": "sirv build --port 8080 --cors --single",
-    "predeploy": "yarn clean && yarn lint && yarn test --watchAll=false --coverage && yarn build",
+    "predeploy": "yarn clean && yarn lint && yarn test --watchAll=false --coverage && yarn build && cp CNAME ./build/",
     "deploy": "gh-pages -d build"
   },
   "browserslist": [
@@ -51,15 +52,15 @@
     ]
   },
   "dependencies": {
-    "cnum": "*",
     "core-js": "*",
     "jrid": "*",
-    "postcss": "<8",
+    "postcss": "*",
     "preact": "*",
     "preact-html-converter": "*",
     "preact-render-to-string": "*",
     "preact-router": "*",
     "regenerator-runtime": "*",
+    "tslib": "*",
     "use-hash-state": "*"
   },
   "devDependencies": {
@@ -68,13 +69,16 @@
     "@types/dompurify": "*",
     "@types/enzyme": "*",
     "@types/jest": "*",
+    "@types/node": "*",
     "@types/react-helmet": "*",
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
+    "cnum": "*",
     "critters": "*",
     "enzyme": "*",
     "enzyme-adapter-preact-pure": "*",
-    "eslint": "<8",
+    "esbuild": "*",
+    "eslint": "*",
     "eslint-config-preact": "*",
     "gh-pages": "*",
     "globby": "*",
@@ -85,6 +89,9 @@
     "prettier": "*",
     "react-helmet": "*",
     "sirv-cli": "*",
+    "ts-jest": "*",
+    "ts-node": "*",
+    "typedoc": "*",
     "typescript": "*"
   },
   "peerDependencies": {

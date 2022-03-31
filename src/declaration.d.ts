@@ -1,14 +1,14 @@
-declare module "*.css" {
+declare module '*.css' {
     const mapping: Record<string, string>
     export default mapping
 }
 
-declare module "preact-cli/sw/" {
+declare module 'preact-cli/sw' {
     export function setupRouting(): void
-    export function setupPrecaching(): void
-    export function getFiles(): void
+    export function setupPrecaching(precacheFiles: Array<PrecacheEntry | string>): void
+    export function getFiles(): Array<PrecacheEntry | string>
 }
 
-declare module "*.txt" {
+declare module '*.txt' {
     export default Record
 }
