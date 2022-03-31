@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{M6X6:function(e,t,n){"use strict";n.r(t);var o=n("hosL"),c=n("Hrl7"),r=n("JBDq");t.default=function(){return Object(o.g)("section",{class:"container py-5"},Object(o.g)(c.b,{title:"Page Not Found"}),Object(o.g)("h1",null,"Not Found — Error 404"),Object(o.g)("p",null,"Nothing here."),Object(o.g)(r.a,{href:"/"},"Home"))}}}]);
-//# sourceMappingURL=route-not-found.chunk.c67b6.js.map
