@@ -10,7 +10,7 @@
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx,mjs}' 'tests/**/*.{js,jsx,ts,tsx,mjs}'",
     "test": "jest ./tests",
     "clean": "rm -rf build coverage",
-    "build": "preact build --no-prerender",
+    "build": "preact build --json --prerenderUrls ./prerender-urls.js",
     "postbuild": "node ./src/generate-sitemap.mjs",
     "serve": "sirv build --port 8080 --cors --single",
     "predeploy": "yarn clean && yarn lint && yarn test --watchAll=false --coverage && yarn build && cp CNAME ./build/",

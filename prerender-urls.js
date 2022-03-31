@@ -89,5 +89,7 @@ module.exports = async function () {
     })
   }
 
+  console.log(pages)
+
   return pages
 }
