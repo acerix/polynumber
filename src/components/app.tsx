@@ -19,15 +19,15 @@ const App: FunctionalComponent = () => {
       <Helmet
         htmlAttributes={{lang: "en-CA"}}
         title="untitled" titleTemplate="%s | polynumber.com"
-        titleAttributes={{itemprop: "name", lang: "en-CA"}}
         meta={[
           {name: "description", content: "Rational polynomials, or polynumbers, mind control."}
         ]}
         link={[
           {rel: "canonical", href: "https://polynumber.com/"},
         ]}
-        script={[
-          {type: "application/ld+json", innerHTML: `{
+      >
+        <script type="application/ld+json">{`
+        {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Polynumber.com",
@@ -42,9 +42,9 @@ const App: FunctionalComponent = () => {
               }
             ],
             "email": "dylan@polynumber.com"
-          }`}
-        ]}
-      />
+        }
+    `}</script>
+      </Helmet>
       <Header />
       <main>
         <Router>

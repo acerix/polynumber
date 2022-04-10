@@ -2,9 +2,8 @@
   "private": true,
   "name": "polynumbers",
   "homepage": "https://polynumber.com/",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "GPL-3.0",
-  "type": "commonjs",
   "scripts": {
     "dev": "preact watch",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx,mjs}' 'tests/**/*.{js,jsx,ts,tsx,mjs}'",
@@ -51,18 +50,7 @@
       "build/"
     ]
   },
-  "dependencies": {
-    "core-js": "*",
-    "jrid": "*",
-    "postcss": "*",
-    "preact": "*",
-    "preact-html-converter": "*",
-    "preact-render-to-string": "*",
-    "preact-router": "*",
-    "regenerator-runtime": "*",
-    "tslib": "*",
-    "use-hash-state": "*"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "*",
     "@babel/eslint-parser": "*",
@@ -74,7 +62,7 @@
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
     "cnum": "*",
-    "critters": "*",
+    "core-js": "*",
     "enzyme": "*",
     "enzyme-adapter-preact-pure": "*",
     "esbuild": "*",
@@ -84,15 +72,24 @@
     "globby": "*",
     "jest": "*",
     "jest-preset-preact": "*",
+    "jrid": "*",
     "parse5": "*",
+    "postcss": "*",
+    "preact": "*",
     "preact-cli": "*",
+    "preact-html-converter": "*",
+    "preact-render-to-string": "*",
+    "preact-router": "*",
     "prettier": "*",
     "react-helmet": "*",
+    "regenerator-runtime": "*",
     "sirv-cli": "*",
+    "tslib": "*",
     "ts-jest": "*",
     "ts-node": "*",
     "typedoc": "*",
-    "typescript": "*"
+    "typescript": "*",
+    "use-hash-state": "*"
   },
   "peerDependencies": {
     "parse5": "*"

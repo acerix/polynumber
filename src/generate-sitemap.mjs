@@ -9,7 +9,7 @@ async function generate() {
   for (const page of await getPages()) {
     urlset += `<url>
     <loc>https://polynumber.com${page.url}</loc>
-    <lastmod>2022-03-20</lastmod>
+    <lastmod>2022-04-20</lastmod>
   </url>`
   }
 

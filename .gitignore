@@ -4,4 +4,5 @@ node_modules
 /*.log
 /.idea
 /size-plugin.json
-stats.json
+/stats.json
+

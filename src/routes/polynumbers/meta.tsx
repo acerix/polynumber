@@ -4,7 +4,7 @@ import { Polyrat } from "cnum/dist/tsc/Polyrat"
 import { createRef, FunctionalComponent, h } from "preact"
 import { PreactHTMLConverter } from "preact-html-converter"
 import { Link } from "preact-router"
-import { Helmet } from "react-helmet"
+import Helmet from "react-helmet"
 import library, { Polynumber } from "./library"
 
 interface PolynumberPlaqueProps {
